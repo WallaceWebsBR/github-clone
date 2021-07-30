@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -62,6 +62,20 @@
                 border: none;
                 border-radius: 20px;
             }
+            .icons-neon{
+                padding-left: 40px;
+                padding-right: 40px;
+                color:snow;
+                text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #0fa,
+      0 0 80px #0fa,
+      0 0 90px #0fa,
+      0 0 100px #0fa,
+      0 0 150px #0fa;    
+            }
             h1,p{
                 font-family: sans-serif;
                 padding-left: 40px;
@@ -96,7 +110,7 @@
         </style>
     </head>
     <body>
-        <div id="bar">
+    <div id="bar">
         <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1024px-Octicons-mark-github.svg.png">
 
         <input type="text" placeholder="Search or jump to..">
@@ -104,46 +118,28 @@
         </div>
         <div class="container">
             <div class="box-col">
-                <img id="avatar" src="http://github.com/WallaceWebsBR.png?size=300px">
-                <p><b>Wallace Alberto<b><br>
-                @WallaceWebsBR</p>
-                <p>Brazilian Developer and Enginner. I like cats and I have a passion for programming.
+                <img id="avatar" src="http://github.com/{{$data[0]['owner']['login']}}.png?size=300px">
+                <p><b>@yield('name')<b><br>
+                {{'@'}}@yield('login')</p>
+                <p>@yield('bio')</p>
                 <fieldset>
                     <legend><p>Archivements</p></legend>
-                    <p>26 Stars
-                    <img src="https://image.flaticon.com/icons/png/512/66/66027.png" width="24px" style="filter: invert(100%);"></p>
-                </fieldset></p>
+                    <p> Followers (@yield('followers', 0))
+                        @yield('followers_img')
+                        <br>
+                        Following (@yield('following', 0))
+                        @yield('following_img')
+                </fieldset>
             </div>
             <br>
             <div class="box-row">
-            <p><i class="fas fa-book-open"> Overview</i></p>
-            <p><i class="fas fa-book"> Repositories</i></p>
-            <p><i class="fab fa-trello"> Projects</i></p>
-            <p><i class="fas fa-box"> Packages</i></p>
+            <a href="/@yield('login')"><p class="icons-neon"><i class="fas fa-book-open"> Overview</i></p></a>
+            <a href="@yield('login')/repo"><p class="icons-neon"><i class="fas fa-book"> Repositories</i></p></a>
+            <p class="icons-neon"><i class="fab fa-trello"> Projects</i></p>
+            <p class="icons-neon"><i class="fas fa-box"> Packages</i></p>
             </div>
             <hr>
-            
-            <p>Popular repositories</p>
-            <div class="box-row">
-            <div class="box-col" style="padding-left:40px;width: 100%;">
-                <fieldset>
-                    <legend>
-                    <a href="#">Meu Repositorio</a>
-                    </legend>
-                <p>Um repositorio muito foda baseado em Javascript para WEB.</p>
-                <p>Tecnologias: <i class="fab fa-js-square"></i> <i class="fab fa-angular"></i> <i class="fab fa-node-js"></i></p>
-                </fieldset>
-            </div>
-            <div class="box-col" style="width: 100%;">
-                <fieldset>
-                    <legend>
-                    <a href="#">Meu RepoPHP</a>
-                    </legend>
-                <p>Um repositorio muito foda baseado em PHP-React e PWA.</p>
-                <p>Tecnologias: <i class="fab fa-php"></i> <i class="fab fa-angular"></i> <i class="fas fa-stroopwafel"></i></p>
-                </fieldset>
-            </div>
-            </div>            
-        </div>
-    </body>
+    @yield('contents')
+    </div>
+</body>
 </html>
