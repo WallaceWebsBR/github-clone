@@ -13,9 +13,9 @@
 </head>
 <body>
     <h1>
-        Type your username bellow
+        Type your git username bellow
     </h1>
-    <input type="text">
-    <button onclick="location.href = '/WallaceWebsBR'">GO</button>
+    <input type="text" id="username">
+    <button onclick="location.href = '/' + document.getElementById('username').value">GO</button>
 </body>
 </html>
