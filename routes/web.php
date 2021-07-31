@@ -30,7 +30,10 @@ Route::get('/{username}', function ($username){
 Route::get('/{username}/repo', function ($username){
     $client = new \Github\Client();
     $client->authenticate(env('GITHUB_TOKEN', 'false'), null, Github\Client::AUTH_ACCESS_TOKEN);
-    $github = $client->api('user')->repositories($username);
+    $data = $client->api('user')->repositories($username);
     $profile = $client->api('user')->show($username);
-    return view('repo')->with('data', $github)->with('profile', $profile);
+    $followings = $client->api('user')->following($username);
+    $followers = $client->api('user')->followers($username);
+    //dd($github);
+    return view('repo',compact('followings', 'followers', 'data','profile'));
 });

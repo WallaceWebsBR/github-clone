@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>@yield('title')</title>
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/1e1db64c85.js" crossorigin="anonymous"></script>
@@ -76,6 +75,9 @@
       0 0 100px #0fa,
       0 0 150px #0fa;    
             }
+            .icons-neon:hover{
+                color:green;
+            }
             h1,p{
                 font-family: sans-serif;
                 padding-left: 40px;
@@ -107,14 +109,38 @@
             fieldset{
                 width: 20%;
             }
+            #repo {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            }
+
+            #repo td, #repo th {
+            border: 1px solid #fff;
+            border-radius: 20px;
+            padding: 8px;
+            color: #fff;
+            }
+
+            #repo tr:nth-child(even){background-color: #04AA6D;}
+
+            #repo tr:hover {background-color: #0fa;}
+
+            #repo th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+            }
         </style>
     </head>
     <body>
     <div id="bar">
-        <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1024px-Octicons-mark-github.svg.png">
+        <a href="/WallaceWebsBR"><img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1024px-Octicons-mark-github.svg.png"></a>
 
-        <input type="text" placeholder="Search or jump to..">
-        <p>Pull requests</p><p>Issues</p><p>Marketplace</p><p>Explore</p>
+        <input type="text" placeholder="Search your username">
+        <a href="https://wallace.tk/contatos"><p>Pull requests</p></a><a href="https://wallace.tk/contatos"><p>Issues</p></a><a href="https://tankhost.com.br"><p>Marketplace</p></a><a href="https://github.com/WallaceWebsBR?tab=repositories"><p>Explore</p></a>
         </div>
         <div class="container">
             <div class="box-col">
@@ -134,7 +160,7 @@
             <br>
             <div class="box-row">
             <a href="/@yield('login')"><p class="icons-neon"><i class="fas fa-book-open"> Overview</i></p></a>
-            <a href="@yield('login')/repo"><p class="icons-neon"><i class="fas fa-book"> Repositories</i></p></a>
+            <a href="/@yield('login')/repo"><p class="icons-neon"><i class="fas fa-book"> Repositories</i></p></a>
             <p class="icons-neon"><i class="fab fa-trello"> Projects</i></p>
             <p class="icons-neon"><i class="fas fa-box"> Packages</i></p>
             </div>

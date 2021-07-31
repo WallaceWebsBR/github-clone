@@ -8,14 +8,14 @@
 @section('following_img')
 @foreach(array_slice($followings, 0, 10) as $following)
 <a href="/{{$following['login']}}">
-<img src="{{$following['avatar_url']}}" alt="{{$following['login']}}" height="40px" style="border-radius: 40px;">
+<img src="{{$following['avatar_url']}}" alt="{{$following['login']}}" title="{{'@'.$following['login']}}" height="40px" style="border-radius: 40px;">
 </a>
 @endforeach
 @endsection
 @section('followers_img')
 @foreach(array_slice($followers,0,10) as $follow)
 <a href="/{{$follow['login']}}">
-    <img src="{{$follow['avatar_url']}}" alt="{{$follow['login']}}" height="40px" style="border-radius: 40px;">
+    <img src="{{$follow['avatar_url']}}" alt="{{$follow['login']}}" title="{{'@'.$follow['login']}}" height="40px" style="border-radius: 40px;">
 </a>
 @endforeach
 @endsection
