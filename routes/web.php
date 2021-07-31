@@ -32,6 +32,5 @@ Route::get('/{username}/repo', function ($username){
     $client->authenticate(env('GITHUB_TOKEN', 'false'), null, Github\Client::AUTH_ACCESS_TOKEN);
     $github = $client->api('user')->repositories($username);
     $profile = $client->api('user')->show($username);
-    dd($profile);
     return view('repo')->with('data', $github)->with('profile', $profile);
 });
